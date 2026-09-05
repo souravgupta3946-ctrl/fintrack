@@ -1,0 +1,1226 @@
+/* =========================
+   GLOBAL
+========================= */
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    min-height: 100%;
+}
+
+body {
+    font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        sans-serif;
+    background: #f6f8fc;
+    color: #172033;
+    overflow-x: hidden;
+}
+
+button,
+input,
+select {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
+    border: 0;
+}
+
+
+/* =========================
+   MAIN APP LAYOUT
+========================= */
+
+.app {
+    min-height: 100vh;
+    width: 100%;
+}
+
+
+/* =========================
+   SIDEBAR
+========================= */
+
+aside {
+    width: 235px;
+    height: 100vh;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+
+    background: #101827;
+    color: #aab6c7;
+
+    padding: 24px 14px;
+
+    display: flex;
+    flex-direction: column;
+
+    z-index: 20;
+}
+
+aside button {
+    background: transparent;
+    color: #aab6c7;
+
+    padding: 12px;
+
+    border-radius: 9px;
+
+    text-align: left;
+
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    margin: 2px 0;
+
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+aside button.active,
+aside button:hover {
+    background: #1c283b;
+    color: white;
+}
+
+
+/* =========================
+   BRAND
+========================= */
+
+.brand {
+    padding: 0 10px 28px;
+
+    display: grid;
+    grid-template-columns: 38px 1fr;
+
+    gap: 0 10px;
+
+    align-items: center;
+}
+
+.brand b {
+    grid-row: span 2;
+
+    width: 38px;
+    height: 38px;
+
+    border-radius: 10px;
+
+    background: #fff;
+    color: #101827;
+
+    display: grid;
+    place-items: center;
+
+    font-size: 19px;
+}
+
+.brand strong {
+    color: #fff;
+    font-size: 18px;
+    line-height: 20px;
+}
+
+.brand small {
+    font-size: 10px;
+    color: #aab6c7;
+}
+
+
+/* =========================
+   LOGOUT
+========================= */
+
+.logout {
+    margin-top: auto !important;
+}
+
+
+/* =========================
+   MAIN CONTENT
+========================= */
+
+/*
+   IMPORTANT:
+   Your React code uses:
+   <main>
+   
+   NOT:
+   <main className="main">
+
+   Therefore this selector must be "main".
+*/
+
+main {
+    margin-left: 235px;
+
+    width: calc(100% - 235px);
+
+    min-height: 100vh;
+
+    padding: 28px 34px;
+
+    box-sizing: border-box;
+
+    overflow-x: hidden;
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+header {
+    width: 100%;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    gap: 20px;
+
+    margin-bottom: 25px;
+}
+
+header small {
+    font-size: 10px;
+    letter-spacing: 0.12em;
+
+    color: #7b8799;
+
+    font-weight: 800;
+}
+
+h1 {
+    font-size: 27px;
+    line-height: 1.2;
+
+    margin: 4px 0;
+}
+
+header p {
+    margin: 0;
+
+    color: #8994a6;
+
+    font-size: 12px;
+}
+
+
+/* =========================
+   HEADER ACTIONS
+========================= */
+
+.actions {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+}
+
+.actions > button:first-child {
+    background: #fff;
+
+    border: 1px solid #e1e6ee;
+
+    border-radius: 9px;
+
+    width: 42px;
+    height: 42px;
+
+    display: grid;
+    place-items: center;
+
+    color: #172033;
+
+    transition: 0.2s ease;
+}
+
+.actions > button:first-child:hover {
+    background: #f1f3f7;
+}
+
+
+/* =========================
+   BUTTONS
+========================= */
+
+.primary {
+    background: #172033;
+    color: white;
+
+    padding: 11px 15px;
+
+    border-radius: 9px;
+
+    font-weight: 700;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 7px;
+
+    transition: background 0.2s ease, transform 0.1s ease;
+}
+
+.primary:hover {
+    background: #263249;
+}
+
+.primary:active {
+    transform: scale(0.98);
+}
+
+.wide {
+    width: 100%;
+}
+
+
+/* =========================
+   STAT CARDS
+========================= */
+
+.stats {
+    display: grid;
+
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+
+    gap: 15px;
+
+    width: 100%;
+}
+
+.stat {
+    background: #fff;
+
+    border: 1px solid #e4e8ef;
+
+    border-radius: 14px;
+
+    padding: 19px;
+
+    display: flex;
+
+    gap: 12px;
+
+    min-width: 0;
+
+    box-shadow: 0 2px 8px rgba(23, 32, 51, 0.03);
+}
+
+.stat-icon {
+    width: 40px;
+    height: 40px;
+
+    flex-shrink: 0;
+
+    border-radius: 10px;
+
+    background: #eef3fb;
+
+    display: grid;
+    place-items: center;
+}
+
+.stat span {
+    display: block;
+
+    font-size: 12px;
+
+    color: #7d899c;
+
+    margin-bottom: 3px;
+}
+
+.stat strong {
+    display: block;
+
+    font-size: 20px;
+
+    line-height: 1.2;
+
+    color: #172033;
+}
+
+
+/* =========================
+   CARDS
+========================= */
+
+.card {
+    background: #fff;
+
+    border: 1px solid #e4e8ef;
+
+    border-radius: 14px;
+
+    padding: 19px;
+
+    min-width: 0;
+
+    box-shadow: 0 2px 8px rgba(23, 32, 51, 0.03);
+}
+
+
+/* =========================
+   DASHBOARD GRID
+========================= */
+
+.grid {
+    display: grid;
+
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+
+    gap: 18px;
+
+    margin: 18px 0;
+
+    width: 100%;
+}
+
+
+/* =========================
+   CHART
+========================= */
+
+.chart {
+    height: 360px;
+
+    min-width: 0;
+}
+
+.chart h3 {
+    margin: 0 0 10px;
+
+    font-size: 17px;
+}
+
+.chart > div {
+    height: 300px;
+
+    width: 100%;
+}
+
+
+/* =========================
+   CARD HEADER
+========================= */
+
+.card-head {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    gap: 15px;
+
+    margin-bottom: 10px;
+}
+
+.card-head h3 {
+    margin: 0;
+
+    font-size: 17px;
+}
+
+
+/* =========================
+   GHOST BUTTON
+========================= */
+
+.ghost {
+    background: #f1f3f7;
+
+    color: #172033;
+
+    border-radius: 8px;
+
+    padding: 8px 11px;
+
+    display: flex;
+
+    gap: 6px;
+
+    align-items: center;
+
+    transition: 0.2s ease;
+}
+
+.ghost:hover {
+    background: #e7eaf0;
+}
+
+
+/* =========================
+   TABLE
+========================= */
+
+.table {
+    width: 100%;
+
+    overflow-x: auto;
+
+    overflow-y: hidden;
+}
+
+table {
+    width: 100%;
+
+    border-collapse: collapse;
+
+    min-width: 650px;
+}
+
+th {
+    font-size: 10px;
+
+    color: #8994a6;
+
+    text-transform: uppercase;
+
+    text-align: left;
+
+    padding: 12px;
+
+    border-bottom: 1px solid #edf0f4;
+
+    white-space: nowrap;
+}
+
+td {
+    padding: 13px 12px;
+
+    border-bottom: 1px solid #f0f2f6;
+
+    font-size: 13px;
+
+    color: #566176;
+
+    vertical-align: middle;
+}
+
+td b,
+td small {
+    display: block;
+}
+
+td b {
+    color: #172033;
+}
+
+td small {
+    color: #9aa4b4;
+
+    font-size: 11px;
+
+    margin-top: 3px;
+}
+
+.income {
+    color: #138a4c !important;
+
+    font-weight: 800;
+}
+
+.expense {
+    color: #cf4b4b !important;
+
+    font-weight: 800;
+}
+
+td button {
+    background: #f2f4f7;
+
+    color: #566176;
+
+    border-radius: 6px;
+
+    margin-right: 4px;
+
+    width: 29px;
+    height: 29px;
+
+    display: inline-grid;
+    place-items: center;
+
+    transition: 0.2s ease;
+}
+
+td button:hover {
+    background: #e4e7ec;
+
+    color: #172033;
+}
+
+.empty {
+    text-align: center;
+
+    padding: 35px !important;
+
+    color: #8994a6;
+}
+
+
+/* =========================
+   TRANSACTIONS TOOLBAR
+========================= */
+
+.toolbar {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    gap: 15px;
+
+    margin-bottom: 15px;
+}
+
+.search {
+    background: #fff;
+
+    border: 1px solid #e1e6ee;
+
+    border-radius: 9px;
+
+    display: flex;
+
+    align-items: center;
+
+    padding: 0 12px;
+
+    max-width: 400px;
+
+    width: 100%;
+
+    color: #8490a3;
+}
+
+.search input {
+    border: 0;
+
+    outline: 0;
+
+    padding: 11px;
+
+    width: 100%;
+
+    background: transparent;
+}
+
+.search input::placeholder {
+    color: #9aa4b4;
+}
+
+
+/* =========================
+   BUDGET
+========================= */
+
+.budget {
+    text-align: center;
+
+    max-width: 680px;
+
+    margin: 50px auto;
+
+    padding: 35px;
+}
+
+.budget > svg {
+    color: #172033;
+}
+
+.budget h2 {
+    margin: 12px 0 4px;
+
+    font-size: 24px;
+}
+
+.budget p {
+    color: #8792a4;
+
+    margin-bottom: 10px;
+}
+
+.budget > strong {
+    font-size: 38px;
+
+    display: block;
+
+    margin: 20px;
+}
+
+.budget input {
+    padding: 11px;
+
+    border: 1px solid #dfe4eb;
+
+    border-radius: 8px;
+
+    margin: 20px 8px 0;
+
+    width: 180px;
+
+    outline: none;
+}
+
+.budget input:focus {
+    border-color: #172033;
+}
+
+.progress {
+    height: 11px;
+
+    background: #edf0f5;
+
+    border-radius: 20px;
+
+    overflow: hidden;
+
+    width: 100%;
+}
+
+.progress span {
+    height: 100%;
+
+    display: block;
+
+    background: #172033;
+
+    border-radius: 20px;
+
+    transition: width 0.3s ease;
+}
+
+.budget-row {
+    display: flex;
+
+    justify-content: space-between;
+
+    gap: 15px;
+
+    color: #788499;
+
+    font-size: 12px;
+
+    margin-top: 8px;
+}
+
+
+/* =========================
+   AUTH PAGE
+========================= */
+
+.auth {
+    min-height: 100vh;
+
+    display: grid;
+
+    place-items: center;
+
+    background: #f6f8fc;
+
+    padding: 20px;
+}
+
+.auth-box {
+    width: min(420px, 100%);
+
+    background: #fff;
+
+    padding: 30px;
+
+    border: 1px solid #e3e8ef;
+
+    border-radius: 16px;
+
+    box-shadow: 0 10px 30px rgba(23, 32, 51, 0.06);
+}
+
+.center {
+    justify-content: center;
+
+    margin-bottom: 20px;
+}
+
+.auth-box h1 {
+    font-size: 25px;
+
+    margin-top: 10px;
+}
+
+.auth-box p {
+    color: #8490a3;
+
+    font-size: 13px;
+
+    line-height: 1.5;
+}
+
+.auth-box form {
+    display: grid;
+
+    gap: 12px;
+}
+
+.auth-box input,
+.modal input,
+.modal select {
+    padding: 12px;
+
+    border: 1px solid #dfe4eb;
+
+    border-radius: 8px;
+
+    outline: 0;
+
+    background: #fff;
+
+    color: #172033;
+
+    width: 100%;
+}
+
+.auth-box input:focus,
+.modal input:focus,
+.modal select:focus {
+    border-color: #172033;
+}
+
+.switch {
+    background: transparent;
+
+    color: #59667b;
+
+    margin: 15px auto 0;
+
+    display: block;
+}
+
+.switch:hover {
+    color: #172033;
+}
+
+.error {
+    background: #fff0f0;
+
+    color: #b13f3f;
+
+    padding: 9px;
+
+    border-radius: 7px;
+
+    font-size: 12px;
+}
+
+
+/* =========================
+   MODAL
+========================= */
+
+.overlay {
+    position: fixed;
+
+    inset: 0;
+
+    background: rgba(10, 17, 28, 0.6);
+
+    display: grid;
+
+    place-items: center;
+
+    padding: 20px;
+
+    z-index: 100;
+}
+
+.modal {
+    background: white;
+
+    border-radius: 15px;
+
+    width: min(480px, 100%);
+
+    max-height: calc(100vh - 40px);
+
+    overflow-y: auto;
+
+    padding: 22px;
+
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.18);
+}
+
+.modal-head {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    gap: 15px;
+}
+
+.modal-head h2 {
+    margin: 0;
+
+    font-size: 20px;
+}
+
+.modal-head button {
+    background: #f1f3f6;
+
+    color: #172033;
+
+    border-radius: 7px;
+
+    width: 35px;
+    height: 35px;
+
+    display: grid;
+    place-items: center;
+}
+
+.modal-head button:hover {
+    background: #e5e8ed;
+}
+
+.modal form {
+    display: grid;
+
+    gap: 12px;
+
+    margin-top: 15px;
+}
+
+
+/* =========================
+   TWO COLUMN FORM
+========================= */
+
+.two {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 10px;
+}
+
+
+/* =========================
+   TRANSACTION TYPE TABS
+========================= */
+
+.tabs {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    background: #f0f2f6;
+
+    padding: 4px;
+
+    border-radius: 8px;
+}
+
+.tabs button {
+    padding: 9px;
+
+    background: transparent;
+
+    color: #59667b;
+
+    border-radius: 6px;
+
+    transition: 0.2s ease;
+}
+
+.tabs button:hover {
+    color: #172033;
+}
+
+.tabs .sel {
+    background: #fff;
+
+    color: #172033;
+
+    box-shadow: 0 1px 4px #d9dee7;
+}
+
+
+/* =========================
+   LARGE SCREENS
+========================= */
+
+@media (min-width: 1400px) {
+    main {
+        padding-left: 45px;
+        padding-right: 45px;
+    }
+
+    .stats {
+        gap: 18px;
+    }
+
+    .grid {
+        gap: 20px;
+    }
+}
+
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 1100px) {
+    main {
+        padding: 24px;
+    }
+
+    .stats {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+/* =========================
+   SMALL TABLET
+========================= */
+
+@media (max-width: 800px) {
+    aside {
+        width: 210px;
+    }
+
+    main {
+        margin-left: 210px;
+
+        width: calc(100% - 210px);
+
+        padding: 20px;
+    }
+
+    header {
+        align-items: flex-start;
+    }
+
+    .actions {
+        flex-wrap: wrap;
+    }
+
+    .chart {
+        height: 340px;
+    }
+
+    .chart > div {
+        height: 280px;
+    }
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 600px) {
+    aside {
+        width: 180px;
+
+        padding: 20px 10px;
+    }
+
+    main {
+        margin-left: 180px;
+
+        width: calc(100% - 180px);
+
+        padding: 16px;
+    }
+
+    .brand {
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+
+    .brand strong {
+        font-size: 16px;
+    }
+
+    .brand small {
+        font-size: 9px;
+    }
+
+    aside button {
+        padding: 10px 8px;
+
+        font-size: 13px;
+    }
+
+    header {
+        flex-direction: column;
+
+        margin-bottom: 20px;
+    }
+
+    header h1 {
+        font-size: 23px;
+    }
+
+    .actions {
+        width: 100%;
+    }
+
+    .actions .primary {
+        flex: 1;
+    }
+
+    .stats {
+        grid-template-columns: 1fr;
+
+        gap: 12px;
+    }
+
+    .grid {
+        grid-template-columns: 1fr;
+
+        gap: 14px;
+
+        margin: 14px 0;
+    }
+
+    .chart {
+        height: 330px;
+
+        padding: 15px;
+    }
+
+    .chart > div {
+        height: 270px;
+    }
+
+    .toolbar {
+        flex-direction: column;
+
+        align-items: stretch;
+    }
+
+    .search {
+        max-width: none;
+    }
+
+    .toolbar .primary {
+        width: 100%;
+    }
+
+    .budget {
+        margin: 20px auto;
+
+        padding: 25px 18px;
+    }
+
+    .budget > strong {
+        font-size: 32px;
+    }
+
+    .budget input {
+        width: 100%;
+
+        margin: 20px 0 10px;
+    }
+
+    .budget .primary {
+        width: 100%;
+    }
+
+    .two {
+        grid-template-columns: 1fr;
+    }
+
+    .modal {
+        padding: 18px;
+    }
+}
+
+
+/* =========================
+   VERY SMALL SCREENS
+========================= */
+
+@media (max-width: 450px) {
+    aside {
+        width: 155px;
+    }
+
+    main {
+        margin-left: 155px;
+
+        width: calc(100% - 155px);
+
+        padding: 12px;
+    }
+
+    aside button {
+        font-size: 12px;
+
+        gap: 7px;
+    }
+
+    .brand {
+        grid-template-columns: 32px 1fr;
+
+        gap: 0 7px;
+    }
+
+    .brand b {
+        width: 32px;
+        height: 32px;
+
+        font-size: 16px;
+    }
+
+    .brand strong {
+        font-size: 14px;
+    }
+
+    .brand small {
+        font-size: 8px;
+    }
+
+    header h1 {
+        font-size: 20px;
+    }
+
+    header p {
+        font-size: 11px;
+    }
+
+    .stat {
+        padding: 15px;
+    }
+
+    .stat strong {
+        font-size: 18px;
+    }
+
+    .card {
+        padding: 15px;
+    }
+}

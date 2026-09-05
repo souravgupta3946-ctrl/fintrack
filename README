@@ -1,0 +1,36 @@
+# FinTrack - Personal Finance Manager
+
+A full-stack personal finance management application.
+
+## Tech Stack
+
+### Frontend
+- React.js
+- Vite
+- CSS
+- Recharts
+
+### Backend
+- Java
+- Spring Boot
+- Spring Security
+- JWT
+- Spring Data JPA
+- MySQL
+
+## Features
+
+- User registration and login
+- JWT authentication
+- Add income and expenses
+- Edit/delete transactions
+- Monthly budget
+- Dashboard
+- Reports and charts
+- CSV export
+
+## Live Demo
+
+Frontend: YOUR_VERCEL_URL
+
+Backend API: YOUR_RAILWAY_URL
