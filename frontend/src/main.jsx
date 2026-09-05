@@ -43,7 +43,7 @@ import "./styles.css";
 // VITE_API_URL=https://your-backend-url.up.railway.app/api
 
 const API =
-  import.meta.env.VITE_API_URL || "http://localhost:8080/api";
+  import.meta.env.VITE_API_URL || "https://fintrack-production-cfb1.up.railway.app/api";
 
 
 /* =========================
