@@ -42,7 +42,7 @@ import "./styles.css";
 // Hosting:
 // VITE_API_URL=https://your-backend-url.up.railway.app/api
 
-const API_URL =
+const API =
   "https://fintrack-production-cfb1.up.railway.app/api";
 
 /* =========================
