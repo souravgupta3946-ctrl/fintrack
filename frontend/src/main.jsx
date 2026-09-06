@@ -42,9 +42,8 @@ import "./styles.css";
 // Hosting:
 // VITE_API_URL=https://your-backend-url.up.railway.app/api
 
-const API =
-  import.meta.env.VITE_API_URL || "https://fintrack-production-cfb1.up.railway.app/api";
-
+const API_URL =
+  "https://fintrack-production-cfb1.up.railway.app/api";
 
 /* =========================
    CATEGORIES
