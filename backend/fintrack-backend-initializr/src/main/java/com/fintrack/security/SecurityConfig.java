@@ -81,9 +81,10 @@ public class SecurityConfig {
 
         CorsConfiguration config = new CorsConfiguration();
 
-        config.setAllowedOrigins(
-                List.of("http://localhost:5173")
-        );
+        configuration.setAllowedOrigins(List.of(
+            "http://localhost:5173",
+            "https://fintrack-w8em.vercel.app"
+        ));
 
         config.setAllowedMethods(
                 List.of(
